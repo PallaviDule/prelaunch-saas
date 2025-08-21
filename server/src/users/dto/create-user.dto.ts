@@ -11,4 +11,7 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   subscriptionType: string; // e.g., free, premium
+
+  @IsString()
+  password: string;
 }

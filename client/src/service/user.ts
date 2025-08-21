@@ -19,5 +19,18 @@ export const onboardUser = async(user: Omit<User, 'createdAt' | 'id' | 'active'>
         
     if (!response.ok) throw new Error('Failed to fetch users');
 
-    return response.json();
+    return await response.json();
+}
+
+export const loginUser = async(user: Pick<User , 'email'| 'password'>) => {
+    const {email, password} = user;
+    const res = await fetch(`${BASE_URL}/users/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!res.ok) throw new Error("Login failed");
+
+      return await res.json();
 }
