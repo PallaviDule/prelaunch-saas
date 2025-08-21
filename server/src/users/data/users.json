@@ -6,5 +6,22 @@
     "subscriptionType": "premium",
     "createdAt": "2025-08-21T11:49:40.602Z",
     "active": true
+  },
+  {
+    "id": "b092c8d9-eec5-405d-bd30-f7fcef109db1",
+    "name": "Hello",
+    "email": "NewUser@gmail.com",
+    "subscriptionType": "Free",
+    "createdAt": "2025-08-21T20:03:08.686Z",
+    "active": true
+  },
+  {
+    "id": "3cd83f87-4802-4c7d-87ac-e0667d51beaa",
+    "name": "Pallavi Ashok Dule",
+    "email": "palavi@gmail.com",
+    "subscriptionType": "Free",
+    "password": "1234",
+    "createdAt": "2025-08-21T20:38:32.459Z",
+    "active": true
   }
 ]

@@ -5,7 +5,7 @@ const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/register');
+    navigate('/signup');
   };
 
   return (
@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
 
       <button
         onClick={handleGetStarted}
-        className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition"
+        className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
       >
         Get Started
       </button>

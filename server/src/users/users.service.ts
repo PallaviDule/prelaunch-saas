@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { v4 as uuid } from 'uuid';
 import * as fs from 'fs';
@@ -13,6 +17,22 @@ export class UsersService {
     const data = fs.readFileSync(DATA_FILE, 'utf8');
 
     return JSON.parse(data) as User[];
+  }
+
+  login({ email, password }: { email: string; password: string }): {
+    message: string;
+    user: User;
+  } {
+    const users = this.readUsers();
+    const user = users.find(
+      (u) => u.email === email && u.password === password,
+    );
+
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    return { message: 'Login successful', user };
   }
 
   private writeUsers(users: any[]) {

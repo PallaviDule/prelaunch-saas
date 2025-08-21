@@ -10,7 +10,7 @@ export const fetchUsers = async (): Promise<User[]> => {
     return users;
 }
 
-export const OnboardUser = async(user: Omit<User, 'createdAt' | 'id'>): Promise<User> => {
+export const onboardUser = async(user: Omit<User, 'createdAt' | 'id' | 'active'>): Promise<User> => {
     const response = await fetch(`${BASE_URL}/users/onboard`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
