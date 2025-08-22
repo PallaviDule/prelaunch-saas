@@ -25,14 +25,16 @@ export class UsersService {
   } {
     const users = this.readUsers();
     const user = users.find(
-      (u) => u.email === email && u.password === password,
+      (u) =>
+        u.email.toLocaleLowerCase() === email.toLocaleLowerCase() &&
+        String(u.password) === password,
     );
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password: _, ...safeUser } = user as User;
-
+    console.log('User:', user, 'And users:', users);
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...safeUser } = user;
 
     return { message: 'Login successful', user: safeUser };
   }
@@ -55,11 +57,14 @@ export class UsersService {
     return newUser;
   }
 
-  offboardUser(id: string) {
+  deleteUser(id: string) {
     const users = this.readUsers();
-    const user = users.find((user) => user.id === id && user.active);
-    if (!user) throw new NotFoundException(`User with id ${id} not found`);
-    user.active = false;
+    const index = users.findIndex((user) => user.id === id);
+
+    if (index === -1)
+      throw new NotFoundException(`User with id ${id} not found`);
+
+    users.splice(index, 1); // remove user completely
     this.writeUsers(users);
     return { message: `User ${id} offboarded successfully` };
   }

@@ -18,9 +18,9 @@ export class UsersController {
     return this.usersService.onboardUser(createUserDto);
   }
 
-  @Delete(':id/offboard')
-  offboard(@Param('id') id: string) {
-    return this.usersService.offboardUser(id);
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.usersService.deleteUser(id);
   }
 
   @Get()

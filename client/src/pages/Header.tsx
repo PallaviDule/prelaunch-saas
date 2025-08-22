@@ -10,6 +10,14 @@ const Header:  React.FC = () => {
             <h1 className="text-xl font-bold text-green-600">Green SaaS</h1>
             <nav className="flex gap-6 text-gray-700">
                 <button
+                    onClick={() => {
+                        navigate("/dashboard");
+                    }}
+                    className="hover:text-green-600 transition"
+                >
+                    Home
+                </button>
+                <button
                 onClick={() => {
                     navigate("/profile");
                 }}

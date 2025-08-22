@@ -19,8 +19,8 @@ const Login: React.FC = () => {
     const mockToken = "mock-token-123";
 
     try {
-      await loginUser({ email, password });
-      login({email}, mockToken)
+      const userDetails = await loginUser({ email, password });
+      login(userDetails.user, mockToken)
       navigate('/dashboard');
     } catch (err: any) {
       setError(err?.message || 'Login failed');
