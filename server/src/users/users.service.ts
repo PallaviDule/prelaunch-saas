@@ -21,18 +21,20 @@ export class UsersService {
 
   login({ email, password }: { email: string; password: string }): {
     message: string;
-    user: User;
+    user: Omit<User, 'password'>;
   } {
     const users = this.readUsers();
     const user = users.find(
       (u) => u.email === email && u.password === password,
     );
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...safeUser } = user as User;
 
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    return { message: 'Login successful', user };
+    return { message: 'Login successful', user: safeUser };
   }
 
   private writeUsers(users: any[]) {

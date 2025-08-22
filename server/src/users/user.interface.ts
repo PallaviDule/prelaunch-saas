@@ -5,5 +5,5 @@ export interface User {
   subscriptionType: string;
   createdAt: Date;
   active: boolean;
-  password: string;
+  password?: string;
 }
