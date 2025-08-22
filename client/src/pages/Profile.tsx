@@ -32,7 +32,7 @@ const Profile = () => {
 
       <main className="max-w-4xl mx-auto p-6 space-y-6 bg-white rounded-2xl shadow-md">
         {/* Top Bar for Action Buttons */}
-        <div className="flex flex-row gap-4  p-4">
+        <div className="flex flex-row gap-4 justify-end p-4">
           <button
             onClick={handleDownloadData}
             className="hover:underline hover:text-blue-700 text-sm"
