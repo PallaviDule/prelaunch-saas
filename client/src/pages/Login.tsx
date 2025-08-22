@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../service/user';
+import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,9 +16,11 @@ const Login: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    const mockToken = "mock-token-123";
 
     try {
       await loginUser({ email, password });
+      login({email, password}, mockToken)
       navigate('/dashboard');
     } catch (err: any) {
       setError(err?.message || 'Login failed');

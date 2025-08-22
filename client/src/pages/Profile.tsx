@@ -1,4 +1,10 @@
+import { useAuth } from "../context/AuthContext";
+import Header from "./Header";
+
 const Profile = () => {
+  const {user} = useAuth();
+
+  console.log('auth:', user);
   const userData = {
     name: "Pallavi Dule",
     email: "Pallavi@example.com",
@@ -29,9 +35,8 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-
-      <main className="max-w-4xl mx-auto p-6 space-y-6 bg-white rounded-2xl shadow-md">
-        {/* Top Bar for Action Buttons */}
+      <Header />
+      <main className="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md">
         <div className="flex flex-row gap-4 justify-end p-4">
           <button
             onClick={handleDownloadData}

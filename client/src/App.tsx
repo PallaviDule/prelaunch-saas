@@ -4,8 +4,12 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import SignUpPage from './pages/SignUpPage';
+import { useAuth } from './context/AuthContext';
 
 function App() {
+  const auth = useAuth();
+  console.log('Auth:', auth);
+
   return (
     <Router>
       <Routes>

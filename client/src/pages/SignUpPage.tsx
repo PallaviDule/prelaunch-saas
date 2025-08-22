@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { onboardUser } from '../service/user';
 import type { User } from '../type/user';
+import { useAuth } from '../context/AuthContext';
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -32,7 +34,9 @@ const SignUpPage: React.FC = () => {
         subscriptionType: subscription,
         password
       };
+      const mockToken = "mock-token-456";
       await onboardUser(newUser);
+      login(newUser, mockToken);
       navigate('/dashboard');
     } catch (err) {
       setError('Failed to register user');
