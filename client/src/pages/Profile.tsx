@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Header from './Header';
+import { deleteUserAccount } from '../service/user';
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -33,13 +34,7 @@ const Profile = () => {
   const handleDeleteAccount = async() => {
     if (window.confirm('Are you sure you want to delete your account?')) {
        try {
-        await fetch(`http://localhost:3000/users/${user.id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
+        await deleteUserAccount(user?.id);
         alert('Account deletion request submitted!');
         logout();
         navigate('/login');
@@ -51,7 +46,7 @@ const Profile = () => {
   };
 
   const handleUpdateDetails = () => {
-    alert('Update details clicked (mock).');
+    alert('Update details clicked.');
   };
 
   const formatDate = (isoDate: string) => {

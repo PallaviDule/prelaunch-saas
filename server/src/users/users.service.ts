@@ -29,7 +29,7 @@ export class UsersService {
         u.email.toLocaleLowerCase() === email.toLocaleLowerCase() &&
         String(u.password) === password,
     );
-    console.log('User:', user, 'And users:', users);
+    // console.log('User:', user, 'And users:', users);
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -39,7 +39,7 @@ export class UsersService {
     return { message: 'Login successful', user: safeUser };
   }
 
-  private writeUsers(users: any[]) {
+  private writeUsers(users: User[]) {
     fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
   }
 
