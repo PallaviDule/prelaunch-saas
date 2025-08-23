@@ -11,8 +11,8 @@ const SignUpPage: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subscription, setSubscription] = useState('Free');
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -22,7 +22,7 @@ const SignUpPage: React.FC = () => {
     setError('');
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       setLoading(false);
       return;
     }
@@ -34,7 +34,7 @@ const SignUpPage: React.FC = () => {
         subscriptionType: subscription,
         password
       };
-      const mockToken = "mock-token-456";
+      const mockToken = 'mock-token-456';
       await onboardUser(newUser);
       login(newUser, mockToken);
       navigate('/dashboard');
@@ -47,78 +47,78 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4'>
+      <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
+        <h1 className='text-2xl font-bold mb-6 text-center'>Sign Up</h1>
+        <form onSubmit={handleSubmit} className='space-y-4'>
           <div>
-            <label className="block text-gray-700 mb-1 font-bold">Name</label>
+            <label className='block text-gray-700 mb-1 font-bold'>Name</label>
             <input
-              type="text"
+              type='text'
               value={name}
               onChange={e => setName(e.target.value)}
               required
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
               placeholder='Enter your username'
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-1 font-bold">Email</label>
+            <label className='block text-gray-700 mb-1 font-bold'>Email</label>
             <input
-              type="email"
+              type='email'
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
               placeholder='Enter your email address'
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-1 font-bold">Subscription Type</label>
+            <label className='block text-gray-700 mb-1 font-bold'>Subscription Type</label>
             <select
               value={subscription}
               onChange={e => setSubscription(e.target.value)}
-              className="w-full border px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500'
             >
-              <option value="Free">Free</option>
-              <option value="Pro">Pro</option>
-              <option value="Enterprise">Enterprise</option>
+              <option value='Free'>Free</option>
+              <option value='Pro'>Pro</option>
+              <option value='Enterprise'>Enterprise</option>
             </select>
           </div>
           <div>
-            <label className="block text-gray-700 mb-1 font-bold">Password</label>
+            <label className='block text-gray-700 mb-1 font-bold'>Password</label>
             <input
-              type="password"
-              placeholder="Enter your password"
+              type='password'
+              placeholder='Enter your password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
           </div>
           <div>
-            <label className="block text-gray-700 mb-1 font-bold">Confirm Password</label>
+            <label className='block text-gray-700 mb-1 font-bold'>Confirm Password</label>
             <input
-              type="password"
-              placeholder="Confirm your password"
+              type='password'
+              placeholder='Confirm your password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {error && <p className='text-red-500 text-sm'>{error}</p>}
           </div>
 
           <button
-            type="submit"
+            type='submit'
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className='w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition'
           >
             {loading ? 'Registering...' : 'Sign Up'}
           </button>
-          <p className="text-sm text-center">
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 hover:underline">
+          <p className='text-sm text-center'>
+            Already have an account?{' '}
+            <Link to='/login' className='text-blue-500 hover:underline'>
               Log in here
             </Link>
           </p>

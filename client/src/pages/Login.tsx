@@ -16,7 +16,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    const mockToken = "mock-token-123";
+    const mockToken = 'mock-token-123';
 
     try {
       const userDetails = await loginUser({ email, password });
@@ -30,47 +30,47 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-2 text-center">Login</h1>
-        <p className="text-sm text-gray-600 mb-6 text-center">Access your dashboard</p>
+    <div className='min-h-screen flex items-center justify-center bg-gray-50 px-4'>
+      <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
+        <h1 className='text-2xl font-bold mb-2 text-center'>Login</h1>
+        <p className='text-sm text-gray-600 mb-6 text-center'>Access your dashboard</p>
 
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+        {error && <p className='text-red-500 mb-4 text-center'>{error}</p>}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className='space-y-4'>
           <div>
-            <label className="block text-gray-700 mb-1">Email</label>
+            <label className='block text-gray-700 mb-1'>Email</label>
             <input
-              type="email"
+              type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-1">Password</label>
+            <label className='block text-gray-700 mb-1'>Password</label>
             <input
-              type="password"
+              type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500"
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
           </div>
 
           <button
-            type="submit"
+            type='submit'
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className='w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition'
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
 
-          <p className="text-sm text-center mt-2">
+          <p className='text-sm text-center mt-2'>
             Don’t have an account?{' '}
-            <Link to="/signup" className="text-blue-500 hover:underline">
+            <Link to='/signup' className='text-blue-500 hover:underline'>
               Sign up
             </Link>
           </p>

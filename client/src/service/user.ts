@@ -1,4 +1,4 @@
-import type { User } from "../type/user";
+import type { User } from '../type/user';
 const BASE_URL = 'http://localhost:3000';
 
 export const fetchUsers = async (): Promise<User[]> => {
@@ -25,12 +25,12 @@ export const onboardUser = async(user: Omit<User, 'createdAt' | 'id' | 'active'>
 export const loginUser = async(user: Pick<User , 'email'| 'password'>) => {
     const {email, password} = user;
     const res = await fetch(`${BASE_URL}/users/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      if (!res.ok) throw new Error("Login failed");
+      if (!res.ok) throw new Error('Login failed');
 
       return await res.json();
 }
