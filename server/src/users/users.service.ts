@@ -1,50 +1,14 @@
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { v4 as uuid } from 'uuid';
-import * as fs from 'fs';
-import * as path from 'path';
-import { User } from './user.interface';
+import { UsersRepository } from 'src/users/users.repository';
 
-const DATA_FILE = path.join(__dirname, '../../src/users/data/users.json');
-
-@Injectable()
+@Injectable() // attaches metadata to the class, signaling that this service is a class that can be managed by the Nest IoC container.
 export class UsersService {
-  private readUsers(): User[] {
-    const data = fs.readFileSync(DATA_FILE, 'utf8');
-
-    return JSON.parse(data) as User[];
-  }
-
-  login({ email, password }: { email: string; password: string }): {
-    message: string;
-    user: Omit<User, 'password'>;
-  } {
-    const users = this.readUsers();
-    const user = users.find(
-      (u) =>
-        u.email.toLocaleLowerCase() === email.toLocaleLowerCase() &&
-        String(u.password) === password,
-    );
-    // console.log('User:', user, 'And users:', users);
-    if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password: _, ...safeUser } = user;
-
-    return { message: 'Login successful', user: safeUser };
-  }
-
-  private writeUsers(users: User[]) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
-  }
+  constructor(private readonly userRepo: UsersRepository) {}
 
   onboardUser(createUserDto: CreateUserDto) {
-    const users = this.readUsers();
+    const users = this.userRepo.fetchAllUsers();
     const newUser = {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       id: uuid() as string,
@@ -53,23 +17,23 @@ export class UsersService {
       active: true,
     };
     users.push(newUser);
-    this.writeUsers(users);
+    this.userRepo.saveUsers(users);
     return newUser;
   }
 
   deleteUser(id: string) {
-    const users = this.readUsers();
+    const users = this.userRepo.fetchAllUsers();
     const index = users.findIndex((user) => user.id === id);
 
     if (index === -1)
       throw new NotFoundException(`User with id ${id} not found`);
 
-    users.splice(index, 1); // remove user completely
-    this.writeUsers(users);
+    users.splice(index, 1);
+    this.userRepo.saveUsers(users);
     return { message: `User ${id} offboarded successfully` };
   }
 
   getAllUsers() {
-    return this.readUsers();
+    return this.userRepo.fetchAllUsers();
   }
 }
