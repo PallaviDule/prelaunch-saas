@@ -1,9 +1,11 @@
 import * as fs from 'fs';
 import { User } from './user.interface';
 import path from 'path';
+import { Injectable } from '@nestjs/common';
 
 const DATA_FILE = path.join(__dirname, '../../src/users/data/users.json');
 
+@Injectable()
 export class UsersRepository {
   private readUsers(): User[] {
     if (!fs.existsSync(DATA_FILE)) return [];

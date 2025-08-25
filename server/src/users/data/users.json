@@ -16,5 +16,14 @@
     "createdAt": "2025-08-21T20:03:08.686Z",
     "active": true,
     "password": 1234
+  },
+  {
+    "id": "f0601718-5668-4471-b5b2-40ac426da680",
+    "name": "Pallavi Dule",
+    "email": "pallavidule@gmail.com",
+    "subscriptionType": "Free",
+    "password": "1234",
+    "createdAt": "2025-08-25T12:52:44.513Z",
+    "active": true
   }
 ]
