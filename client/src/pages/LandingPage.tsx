@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,8 +10,6 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-50'>
-      <Header />
-
       {/* Hero Section */}
       <main className='flex-1 flex flex-col items-center justify-center text-center px-6'>
         <h2 className='text-4xl font-bold mb-4'>Welcome to Green SaaS</h2>

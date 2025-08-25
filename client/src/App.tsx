@@ -4,23 +4,21 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import SignUpPage from './pages/SignUpPage';
-import { useAuth } from './context/AuthContext';
+import Header from './pages/Header';
 
 function App() {
-  const auth = useAuth();
-  console.log('Auth:', auth);
-
   return (
     <Router>
+      <Header />
       <Routes>
-        <Route path='/' element={<LandingPage />}/>
-        <Route path='/signup' element={<SignUpPage />}/>
-        <Route path='/login' element={<Login />} />
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='profile' element={<Profile/>} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUpPage />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

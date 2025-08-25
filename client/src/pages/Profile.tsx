@@ -56,7 +56,6 @@ const Profile = () => {
 
   return (
     <div className='min-h-screen bg-gray-50 '>
-      <Header />
       <main className='max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-10'>
         {/* Top Buttons */}
         <div className='flex flex-row gap-4 justify-end p-4'>

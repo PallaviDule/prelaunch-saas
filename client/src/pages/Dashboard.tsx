@@ -1,4 +1,3 @@
-import Header from './Header';
 import { subscription, activities } from '../data/dashboardData';
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
@@ -10,8 +9,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
-      <Header />
-
       <main className='flex-1 p-6'>
         <h2 className='text-2xl mb-6'>
           Welcome back, <span className='text-green-600'>{user?.name}</span>!
