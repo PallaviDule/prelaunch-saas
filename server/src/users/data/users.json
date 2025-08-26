@@ -52,5 +52,14 @@
     "password": "1234",
     "createdAt": "2025-08-25T14:01:01.145Z",
     "active": true
+  },
+  {
+    "id": "c37c424b-ebd0-4757-8118-b4ed63606ea9",
+    "name": "Pal Dule",
+    "email": "123@g.com",
+    "subscriptionType": "Free",
+    "password": "123456",
+    "createdAt": "2025-08-26T19:40:37.268Z",
+    "active": true
   }
 ]

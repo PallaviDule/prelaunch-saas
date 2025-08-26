@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../service/user';
 import { useAuth } from '../context/AuthContext';
+import { validateLoginForm } from '../utils/validation';
+import ErrorMessage from './common/ErrorMessage';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -14,13 +16,17 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
-    const mockToken = 'mock-token-123';
+
+    const validatedError = validateLoginForm({email, password});
+    if(validatedError){
+      setError(validatedError);
+    }
+    setLoading(true);
 
     try {
       const userDetails = await loginUser({ email, password });
-      dispatch({type: 'LOGIN', payload: {user: userDetails.user, token: mockToken}});
+      dispatch({type: 'LOGIN', payload: {user: userDetails.user, token: 'mock-token-123'}});
       navigate('/dashboard');
     } catch (err: any) {
       setError(err?.message || 'Login failed');
@@ -34,9 +40,6 @@ const Login: React.FC = () => {
       <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
         <h1 className='text-2xl font-bold mb-2 text-center'>Login</h1>
         <p className='text-sm text-gray-600 mb-6 text-center'>Access your dashboard</p>
-
-        {error && <p className='text-red-500 mb-4 text-center'>{error}</p>}
-
         <form onSubmit={handleSubmit} className='space-y-4'>
           <div>
             <label className='block text-gray-700 mb-1'>Email</label>
@@ -59,6 +62,7 @@ const Login: React.FC = () => {
               className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
           </div>
+          {error && <ErrorMessage message={error}/>}
 
           <button
             type='submit'

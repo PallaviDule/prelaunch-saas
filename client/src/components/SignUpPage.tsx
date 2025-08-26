@@ -4,6 +4,8 @@ import { onboardUser } from '../service/user';
 import type { User } from '../type/user';
 import { useAuth } from '../context/AuthContext';
 import { subscriptionPlans } from '../data/dashboardData';
+import { validateSignupForm } from '../utils/validation';
+import ErrorMessage from './common/ErrorMessage';
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,7 +28,6 @@ const SignUpPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
 
     if (password !== confirmPassword) {
@@ -34,6 +35,13 @@ const SignUpPage: React.FC = () => {
       setLoading(false);
       return;
     }
+
+    const validateError = validateSignupForm({name, email, password, confirmPassword});
+
+    if(validateError){
+      setError(validateError);
+    }
+    setLoading(true);
 
     try {
       const newUser: Omit<User, 'id' | 'createdAt' | 'active'> = {
@@ -113,7 +121,7 @@ const SignUpPage: React.FC = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
             />
-            {error && <p className='text-red-500 text-sm'>{error}</p>}
+            {error && <ErrorMessage message={error}/>}
           </div>
 
           <button
