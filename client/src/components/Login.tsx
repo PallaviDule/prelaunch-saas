@@ -63,14 +63,14 @@ const Login: React.FC = () => {
           <button
             type='submit'
             disabled={loading}
-            className='w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition'
+            className='w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition'
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
 
           <p className='text-sm text-center mt-2'>
             Don’t have an account?{' '}
-            <Link to='/signup' className='text-blue-500 hover:underline'>
+            <Link to='/signup' className='text-green-600 hover:underline'>
               Sign up
             </Link>
           </p>

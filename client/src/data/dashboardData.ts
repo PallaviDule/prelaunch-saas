@@ -1,5 +1,5 @@
 export type SubscriptionStatus = 'active' | 'inactive' | 'cancelled';
-type SubscriptionPlanType = 'Free' | 'Pro' | 'Premium';
+export type SubscriptionPlanType = 'Free' | 'Pro' | 'Premium';
 
 type Subscription = {
     plan: SubscriptionPlanType;

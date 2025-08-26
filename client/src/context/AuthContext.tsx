@@ -1,6 +1,7 @@
 import { createContext, useContext, type ReactNode, useReducer } from 'react';
 import { reducer } from './reducer';
 import type { AuthAction, AuthState } from '../type/auth';
+import { subscriptionPlans } from '../data/dashboardData';
 
 interface AuthContextType {
   state: AuthState;
@@ -10,7 +11,7 @@ interface AuthContextType {
 const initialState: AuthState = {
   user: JSON.parse(localStorage.getItem('user') || 'null'),
   isLoggedIn: false,
-  chosenPlan: 'Free'
+  chosenPlan: subscriptionPlans[0]
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
