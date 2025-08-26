@@ -3,7 +3,8 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
+  const { state } = useAuth();
+  const {user} = state;
 
   if (!user) return <p className='text-center mt-10'>Please login to view dashboard.</p>;
   const userPlan = subscriptionPlans.find(plan => plan.type === user.subscriptionType) || subscriptionPlans[0];

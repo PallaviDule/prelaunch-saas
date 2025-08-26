@@ -7,7 +7,8 @@ import { subscriptionPlans } from '../data/dashboardData';
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const {state, dispatch} = useAuth();
+  const {chosenPlan} = state;
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -35,9 +36,8 @@ const SignUpPage: React.FC = () => {
         subscriptionType: subscription,
         password
       };
-      const mockToken = 'mock-token-456';
       const userResponse = await onboardUser(newUser);
-      login(userResponse, mockToken);
+      dispatch({type: 'LOGIN', payload: {user: userResponse, token: 'mock-token-456'}});
       navigate('/dashboard');
     } catch (err) {
       setError('Failed to register user');
@@ -79,7 +79,7 @@ const SignUpPage: React.FC = () => {
           <div>
             <label className='block text-gray-700 mb-1 font-bold'>Subscription Type</label>
             <select
-              value={subscription}
+              value={chosenPlan}
               onChange={e => setSubscription(e.target.value)}
               className='w-full border px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-black'
             >

@@ -1,12 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { subscriptionPlans } from '../data/dashboardData';
+import { subscriptionPlans, type SubscriptionPlan } from '../data/dashboardData';
+import { useAuth } from '../context/AuthContext';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
+  const {state, dispatch} = useAuth();
 
-  const handleGetStarted = () => {
+  const handleGetStarted = (planType : SubscriptionPlan): void => {
     navigate('/signup');
+    dispatch({type: 'SET_PLAN', payload: planType})
   };
 
   return (
@@ -18,7 +21,7 @@ const LandingPage: React.FC = () => {
           Build a sustainable future with our clean energy management platform. Manage subscriptions, track activity, and make data-driven decisions.
         </p>
         <button
-          onClick={handleGetStarted}
+          onClick={() => handleGetStarted(state.chosenPlan)}
           className='bg-green-600 text-white px-4 py-1 rounded-lg shadow hover:bg-green-700 transition'
         >
           Get Started
@@ -64,7 +67,7 @@ const LandingPage: React.FC = () => {
                 ))}
               </ul>
               <button
-                onClick={handleGetStarted}
+                onClick={() => handleGetStarted(plan.type)}
                 className='bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm'
               >
                 Choose {plan.type}

@@ -1,37 +1,25 @@
-import { createContext, useState, useContext, type ReactNode } from 'react';
-import type { User } from '../type/user';
+import { createContext, useContext, type ReactNode, useReducer } from 'react';
+import { reducer } from './reducer';
+import type { AuthAction, AuthState } from '../type/auth';
 
 interface AuthContextType {
-  isLoggedIn: boolean;
-  user: User | null;
-  login: (userData: User, token: string) => void;
-  logout: () => void;
+  state: AuthState;
+  dispatch: React.Dispatch<AuthAction>;
+}
+
+const initialState: AuthState = {
+  user: JSON.parse(localStorage.getItem('user') || 'null'),
+  isLoggedIn: false,
+  chosenPlan: 'Free'
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<User | null>(
-        JSON.parse(localStorage.getItem('user') || 'null')
-    );
-    const [isLoggedIn, setIsLoggedIn] = useState(!!user);
-
-    const login = (userData: User, token: string) => {
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(userData));
-        setUser(userData);
-        setIsLoggedIn(true);
-    };
-
-    const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setUser(null);
-        setIsLoggedIn(false);
-    };
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
+        <AuthContext.Provider value={{ state, dispatch }}>
         {children}
         </AuthContext.Provider>
     );

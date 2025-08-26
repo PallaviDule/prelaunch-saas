@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { dispatch } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +20,7 @@ const Login: React.FC = () => {
 
     try {
       const userDetails = await loginUser({ email, password });
-      login(userDetails.user, mockToken)
+      dispatch({type: 'LOGIN', payload: {user: userDetails.user, token: mockToken}});
       navigate('/dashboard');
     } catch (err: any) {
       setError(err?.message || 'Login failed');

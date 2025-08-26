@@ -3,7 +3,13 @@ import { useAuth } from '../context/AuthContext';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isLoggedIn, logout } = useAuth();
+  const { state, dispatch } = useAuth();
+  const {isLoggedIn} = state;
+
+  const handleLogout = () => {
+    dispatch({type: 'LOGOUT'});
+    navigate('/login');
+  }
 
   return (
     <header className='w-full bg-white shadow-md'>
@@ -21,15 +27,7 @@ const Header = () => {
             <>
               <button onClick={() => navigate('/dashboard')} className='hover:text-green-600 transition'> Dashboard </button>
               <button onClick={() => navigate('/profile')} className='hover:text-green-600 transition'> Profile </button>
-              <button
-                onClick={() => {
-                  logout();
-                  navigate('/login');
-                }}
-                className='hover:text-red-600 transition'
-              >
-                Logout
-              </button>
+              <button onClick={handleLogout} className='hover:text-red-600 transition'> Logout </button>
             </>
           )}
         </nav>

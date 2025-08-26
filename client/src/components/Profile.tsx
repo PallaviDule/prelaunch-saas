@@ -3,7 +3,8 @@ import { useAuth } from '../context/AuthContext';
 import { deleteUserAccount } from '../service/user';
 
 const Profile = () => {
-  const { user, logout } = useAuth();
+  const { state, dispatch } = useAuth();
+  const { user } = state;
   const navigate = useNavigate();
 
   if (!user) {
@@ -34,7 +35,7 @@ const Profile = () => {
        try {
         await deleteUserAccount(user?.id);
         alert('Account deletion request submitted!');
-        logout();
+        dispatch({type: 'LOGOUT'});
         navigate('/login');
       } catch (error) {
         console.error(error);
@@ -57,24 +58,9 @@ const Profile = () => {
       <main className='max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-10'>
         {/* Top Buttons */}
         <div className='flex flex-row gap-4 justify-end p-4'>
-          <button
-            onClick={handleDownloadData}
-            className='hover:underline hover:text-blue-700 text-sm'
-          >
-            Download Data
-          </button>
-          <button
-            onClick={handleUpdateDetails}
-            className='hover:text-blue-700 hover:underline text-sm'
-          >
-            Update Details
-          </button>
-          <button
-            onClick={handleDeleteAccount}
-            className='hover:text-red-600 hover:underline text-sm'
-          >
-            Delete Account
-          </button>
+          <button onClick={handleDownloadData} className='hover:underline hover:text-blue-700 text-sm'> Download Data </button>
+          <button onClick={handleUpdateDetails} className='hover:text-blue-700 hover:underline text-sm'> Update Details </button>
+          <button onClick={handleDeleteAccount} className='hover:text-red-600 hover:underline text-sm'> Delete Account </button>
         </div>
 
         {/* Profile Content */}
@@ -83,35 +69,20 @@ const Profile = () => {
           <div className='grid grid-cols-1 gap-4'>
             <div>
               <label className='block text-gray-600'>Name</label>
-              <input
-                value={user.name}
-                readOnly
-                className='border p-2 w-full rounded'
-              />
+              <input value={user.name} readOnly className='border p-2 w-full rounded'/>
             </div>
             <div>
               <label className='block text-gray-600'>Email</label>
-              <input
-                value={user.email}
-                readOnly
-                className='border p-2 w-full rounded'
-              />
+              <input value={user.email} readOnly className='border p-2 w-full rounded'/>
             </div>
             <div>
               <label className='block text-gray-600'>Subscription</label>
-              <input
-                value={user.subscriptionType}
-                readOnly
-                className='border p-2 w-full rounded'
-              />
+              <input value={user.subscriptionType} readOnly className='border p-2 w-full rounded'/>
             </div>
             <div>
               <label className='block text-gray-600'>Joined On</label>
               <input
-                value={formatDate(user.createdAt)}
-                readOnly
-                className='border p-2 w-full rounded'
-              />
+                value={formatDate(user.createdAt)} readOnly className='border p-2 w-full rounded'/>
             </div>
           </div>
         </div>
