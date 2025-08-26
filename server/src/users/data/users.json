@@ -25,5 +25,32 @@
     "password": "1234",
     "createdAt": "2025-08-25T12:52:44.513Z",
     "active": true
+  },
+  {
+    "id": "25ea9ec5-b566-4703-ba9f-a5c827b8de4c",
+    "name": "New User",
+    "email": "newer@gmail.com",
+    "subscriptionType": "Enterprise",
+    "password": "1234",
+    "createdAt": "2025-08-25T13:00:57.572Z",
+    "active": true
+  },
+  {
+    "id": "eafeb3c4-24ba-43a3-9860-90ff7ed7d9a2",
+    "name": "Dev",
+    "email": "dev@gmail.com",
+    "subscriptionType": "Free",
+    "password": "1234",
+    "createdAt": "2025-08-25T13:54:45.154Z",
+    "active": true
+  },
+  {
+    "id": "03c5d0e1-05c1-475d-882c-73c446f4a540",
+    "name": "Hi New",
+    "email": "hi@gmail.com",
+    "subscriptionType": "Pro",
+    "password": "1234",
+    "createdAt": "2025-08-25T14:01:01.145Z",
+    "active": true
   }
 ]

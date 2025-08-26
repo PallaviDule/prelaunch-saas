@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import Header from './Header';
 import { deleteUserAccount } from '../service/user';
 
 const Profile = () => {
@@ -10,7 +9,6 @@ const Profile = () => {
   if (!user) {
     return (
       <div className='min-h-screen bg-gray-50'>
-        <Header />
         <main className='max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md'>
           <p>Please log in to view profile.</p>
         </main>

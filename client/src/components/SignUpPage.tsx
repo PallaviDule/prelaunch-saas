@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { onboardUser } from '../service/user';
 import type { User } from '../type/user';
 import { useAuth } from '../context/AuthContext';
+import { subscriptionPlans } from '../data/dashboardData';
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ const SignUpPage: React.FC = () => {
         password
       };
       const mockToken = 'mock-token-456';
-      await onboardUser(newUser);
-      login(newUser, mockToken);
+      const userResponse = await onboardUser(newUser);
+      login(userResponse, mockToken);
       navigate('/dashboard');
     } catch (err) {
       setError('Failed to register user');
@@ -58,7 +59,7 @@ const SignUpPage: React.FC = () => {
               value={name}
               onChange={e => setName(e.target.value)}
               required
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
               placeholder='Enter your username'
             />
           </div>
@@ -70,7 +71,7 @@ const SignUpPage: React.FC = () => {
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
               placeholder='Enter your email address'
             />
           </div>
@@ -80,11 +81,11 @@ const SignUpPage: React.FC = () => {
             <select
               value={subscription}
               onChange={e => setSubscription(e.target.value)}
-              className='w-full border px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500'
+              className='w-full border px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-black'
             >
-              <option value='Free'>Free</option>
-              <option value='Pro'>Pro</option>
-              <option value='Enterprise'>Enterprise</option>
+              {subscriptionPlans.map((plan) => 
+                <option value={plan.type}>{plan.type}</option>)
+              }
             </select>
           </div>
           <div>
@@ -94,7 +95,7 @@ const SignUpPage: React.FC = () => {
               placeholder='Enter your password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
             />
           </div>
           <div>
@@ -104,7 +105,7 @@ const SignUpPage: React.FC = () => {
               placeholder='Confirm your password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
+              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
             />
             {error && <p className='text-red-500 text-sm'>{error}</p>}
           </div>
@@ -112,13 +113,13 @@ const SignUpPage: React.FC = () => {
           <button
             type='submit'
             disabled={loading}
-            className='w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition'
+            className='w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition'
           >
             {loading ? 'Registering...' : 'Sign Up'}
           </button>
           <p className='text-sm text-center'>
             Already have an account?{' '}
-            <Link to='/login' className='text-blue-500 hover:underline'>
+            <Link to='/login' className='text-green-700 hover:underline hover:text-green-800'>
               Log in here
             </Link>
           </p>
