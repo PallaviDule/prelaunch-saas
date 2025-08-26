@@ -15,14 +15,14 @@
     "subscriptionType": "Free",
     "createdAt": "2025-08-21T20:03:08.686Z",
     "active": true,
-    "password": 1234
+    "password": 123456
   },
   {
     "id": "f0601718-5668-4471-b5b2-40ac426da680",
     "name": "Pallavi Dule",
     "email": "pallavidule@gmail.com",
     "subscriptionType": "Free",
-    "password": "1234",
+    "password": "123456",
     "createdAt": "2025-08-25T12:52:44.513Z",
     "active": true
   },
@@ -31,7 +31,7 @@
     "name": "New User",
     "email": "newer@gmail.com",
     "subscriptionType": "Enterprise",
-    "password": "1234",
+    "password": "123456",
     "createdAt": "2025-08-25T13:00:57.572Z",
     "active": true
   },
@@ -40,7 +40,7 @@
     "name": "Dev",
     "email": "dev@gmail.com",
     "subscriptionType": "Free",
-    "password": "1234",
+    "password": "123456",
     "createdAt": "2025-08-25T13:54:45.154Z",
     "active": true
   },
@@ -49,7 +49,7 @@
     "name": "Hi New",
     "email": "hi@gmail.com",
     "subscriptionType": "Pro",
-    "password": "1234",
+    "password": "123456",
     "createdAt": "2025-08-25T14:01:01.145Z",
     "active": true
   },
@@ -67,7 +67,7 @@
     "name": "hei there",
     "email": "h@1.com",
     "subscriptionType": "Free",
-    "password": "1234",
+    "password": "123456",
     "createdAt": "2025-08-26T20:23:51.656Z",
     "active": true
   }

@@ -22,6 +22,7 @@ const Login: React.FC = () => {
     const validatedError = validateLoginForm({email, password});
     if(validatedError){
       setError(validatedError);
+      return;
     }
     setLoading(true);
 

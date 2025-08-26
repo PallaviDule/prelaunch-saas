@@ -31,16 +31,11 @@ const SignUpPage: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      setLoading(false);
-      return;
-    }
-
     const validateError = validateSignupForm({name, email, password, confirmPassword});
 
     if(validateError){
       setError(validateError);
+      return;
     }
     setLoading(true);
 
