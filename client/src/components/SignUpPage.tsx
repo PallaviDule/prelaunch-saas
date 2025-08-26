@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { subscriptionPlans } from '../data/dashboardData';
 import { validateSignupForm } from '../utils/validation';
 import ErrorMessage from './common/ErrorMessage';
+import PasswordField from './common/PasswordField';
 
 const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
@@ -102,28 +103,21 @@ const SignUpPage: React.FC = () => {
               }
             </select>
           </div>
-          <div>
-            <label className='block text-gray-700 mb-1 font-bold'>Password</label>
-            <input
-              type='password'
-              placeholder='Enter your password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
-            />
-          </div>
-          <div>
-            <label className='block text-gray-700 mb-1 font-bold'>Confirm Password</label>
-            <input
-              type='password'
-              placeholder='Confirm your password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-black'
-            />
-            {error && <ErrorMessage message={error}/>}
-          </div>
-
+          <PasswordField
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder = 'Enter your password'
+            required
+          />
+          <PasswordField
+            label="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder = 'Enter your confirm password'
+            required
+          />
+          {error && <ErrorMessage message={error}/>}
           <button
             type='submit'
             disabled={loading}

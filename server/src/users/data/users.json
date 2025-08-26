@@ -61,5 +61,14 @@
     "password": "123456",
     "createdAt": "2025-08-26T19:40:37.268Z",
     "active": true
+  },
+  {
+    "id": "729e293e-85db-4306-a7c9-f48d254098b8",
+    "name": "hei there",
+    "email": "h@1.com",
+    "subscriptionType": "Free",
+    "password": "1234",
+    "createdAt": "2025-08-26T20:23:51.656Z",
+    "active": true
   }
 ]

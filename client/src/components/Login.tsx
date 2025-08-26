@@ -4,6 +4,7 @@ import { loginUser } from '../service/user';
 import { useAuth } from '../context/AuthContext';
 import { validateLoginForm } from '../utils/validation';
 import ErrorMessage from './common/ErrorMessage';
+import PasswordField from './common/PasswordField';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -51,17 +52,13 @@ const Login: React.FC = () => {
               className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
             />
           </div>
-
-          <div>
-            <label className='block text-gray-700 mb-1'>Password</label>
-            <input
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className='w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-500'
-            />
-          </div>
+          <PasswordField
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Enter your passowrd'
+            required
+          />
           {error && <ErrorMessage message={error}/>}
 
           <button
