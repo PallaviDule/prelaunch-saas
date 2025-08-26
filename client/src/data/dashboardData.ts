@@ -20,16 +20,16 @@ export type SubscriptionPlan = {
 };
 
 export const subscription: Subscription = {
-  plan: 'Pro',
+  plan: 'Free',
   status: 'active',
-  renewalDate: '2025-09-01',
-  price: '€19.99/month'
+  renewalDate: '2025-10-01',
+  price: '€0/month'
 }
 
 export const subscriptionPlans: SubscriptionPlan[] = [
   { type: 'Free', price: '€0', features: ['Basic usage', 'Limited support'] },
   { type: 'Pro', price: '€29', features: ['Priority support', 'Advanced features'] },
-  { type: 'Premium', price: '€99', features: ['All features', 'Dedicated support'] },
+  { type: 'Premium', price: '€49', features: ['All features', 'Dedicated support'] },
 ];
 
 export const activities: Activity[] = [

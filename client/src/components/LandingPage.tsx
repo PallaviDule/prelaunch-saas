@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
                 ))}
               </ul>
               <button
-                onClick={() => handleGetStarted(plan.type)}
+                onClick={() => handleGetStarted(plan)}
                 className='bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm'
               >
                 Choose {plan.type}

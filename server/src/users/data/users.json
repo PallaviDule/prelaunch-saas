@@ -30,7 +30,7 @@
     "id": "25ea9ec5-b566-4703-ba9f-a5c827b8de4c",
     "name": "New User",
     "email": "newer@gmail.com",
-    "subscriptionType": "Enterprise",
+    "subscriptionType": "Pro",
     "password": "123456",
     "createdAt": "2025-08-25T13:00:57.572Z",
     "active": true

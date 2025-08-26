@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
     <div className='min-h-screen flex flex-col bg-gray-100'>
       <main className='flex-1 p-6'>
         <h2 className='text-2xl mb-6'>
-          Welcome back, <span className='text-green-600'>{user?.name}</span>!
+          Welcome , <span className='text-green-600'>{user?.name}</span>!
         </h2>
 
         {/* Subscription Section */}
@@ -36,7 +36,7 @@ const Dashboard: React.FC = () => {
                 </span>
               </p>
               <p className='text-sm text-gray-500'> Renewal Date: {subscription.renewalDate} </p>
-              <p className='text-sm text-gray-500'>Price: {subscription.price}</p>
+              <p className='text-sm text-gray-500'>Price: {userPlan.price}</p>
             </div>
             <button className='mt-4 sm:mt-0 px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700'>
               Manage Plan
