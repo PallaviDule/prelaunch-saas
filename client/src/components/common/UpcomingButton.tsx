@@ -1,12 +1,12 @@
 import React from 'react';
 
-type ComingSoonButtonProps = {
+type UpcomingButtonProps = {
   label: string;
   message?: string;
   className?: string;
 };
 
-const ComingSoonButton: React.FC<ComingSoonButtonProps> = ({ 
+const UpcomingButton: React.FC<UpcomingButtonProps> = ({ 
   label, 
   className = '',
   message = 'This feature is coming soon!' 
@@ -25,4 +25,4 @@ const ComingSoonButton: React.FC<ComingSoonButtonProps> = ({
   );
 };
 
-export default ComingSoonButton;
+export default UpcomingButton;
