@@ -1,6 +1,7 @@
 import { subscription, activities, subscriptionPlans } from '../data/dashboardData';
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import ComingSoonButton from './common/ComingSoonButton';
 
 const Dashboard: React.FC = () => {
   const { state } = useAuth();
@@ -38,9 +39,7 @@ const Dashboard: React.FC = () => {
               <p className='text-sm text-gray-500'> Renewal Date: {subscription.renewalDate} </p>
               <p className='text-sm text-gray-500'>Price: {userPlan.price}</p>
             </div>
-            <button className='mt-4 sm:mt-0 px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700'>
-              Manage Plan
-            </button>
+            <ComingSoonButton label='Manage Plan' className='px-4 py-2 text-base'/>
           </div>
         </section>
          {/* Other Plans */}
@@ -61,9 +60,7 @@ const Dashboard: React.FC = () => {
                     ))}
                   </ul>
                 )}
-                <button className='mt-2 px-2 py-1 bg-green-600 text-white text-xs rounded hover:bg-green-700'>
-                  Upgrade
-                </button>
+                <ComingSoonButton label='Upgrade' className='px-2 py-1 text-xs'/>
               </div>
             ))}
           </div>
