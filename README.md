@@ -86,6 +86,6 @@ server/
 **Landing Page**
 <img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/bdce9ab9-fd74-4141-bd0a-10f9c1da0cfe" />
 **Sign up page:**
-<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/622fc7b7-6869-40e6-831b-a2ffa1d74197" />
+<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 40 47" src="https://github.com/user-attachments/assets/1651ebb5-606f-4ff2-b50b-012f1ddb78e6" />
 **Dashboard**
-<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/4d0336eb-ed02-484f-928d-f79b97d4d43d" />
+<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 41 58" src="https://github.com/user-attachments/assets/1654b9bc-099c-434e-b4dc-b42a9dfc1971" />
