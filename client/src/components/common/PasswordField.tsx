@@ -32,7 +32,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
         <button
           type="button"
           onClick={() => setShow(!show)}
-          className="absolute right-3 top-2 text-sm text-gray-600 hover:text-black"
+          className="absolute right-3 top-3 text-sm text-gray-600 hover:text-black text-center"
         >
           {show ? 'Hide' : 'Show'}
         </button>

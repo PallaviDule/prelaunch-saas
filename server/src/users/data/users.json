@@ -36,15 +36,6 @@
     "active": true
   },
   {
-    "id": "eafeb3c4-24ba-43a3-9860-90ff7ed7d9a2",
-    "name": "Dev",
-    "email": "dev@gmail.com",
-    "subscriptionType": "Free",
-    "password": "123456",
-    "createdAt": "2025-08-25T13:54:45.154Z",
-    "active": true
-  },
-  {
     "id": "03c5d0e1-05c1-475d-882c-73c446f4a540",
     "name": "Hi New",
     "email": "hi@gmail.com",
@@ -69,6 +60,15 @@
     "subscriptionType": "Free",
     "password": "123456",
     "createdAt": "2025-08-26T20:23:51.656Z",
+    "active": true
+  },
+  {
+    "id": "eafeb3c4-24ba-43a3-9860-90ff7ed7d9a2",
+    "name": "Dev",
+    "email": "dev@gmail.com",
+    "subscriptionType": "Free",
+    "password": "123456",
+    "createdAt": "2025-08-25T13:54:45.154Z",
     "active": true
   }
 ]
