@@ -6,7 +6,7 @@ This repository contains the **client** and **server** code for a subscription-b
 The client provides an intuitive UI for user onboarding and dashboard features, while the server handles user management and API endpoints.
 
 ## Tech Stack
-**Client**: React, Tailwind CSS, Vite
+**Client**: React, Tailwind CSS, Vite    
 **Server**: NestJS, TypeScript, in-memory mock data
 
 ## Setup Instructions
@@ -81,3 +81,11 @@ server/
 
 * This project uses **mock data** for user management; no database is integrated yet.
 * **Upcoming** features display placeholder alerts
+
+## Project Screenshots:
+**Landing Page**
+<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/bdce9ab9-fd74-4141-bd0a-10f9c1da0cfe" />
+**Sign up page:**
+<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/622fc7b7-6869-40e6-831b-a2ffa1d74197" />
+**Dashboard**
+<img width="1688" height="900" alt="Screenshot 2025-08-27 at 19 39 13" src="https://github.com/user-attachments/assets/4d0336eb-ed02-484f-928d-f79b97d4d43d" />
