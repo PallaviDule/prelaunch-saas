@@ -19,5 +19,15 @@ export default tseslint.config([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      "no-unused-vars": "off", // turn off base rule
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",   // allow unused args with _
+          varsIgnorePattern: "^_",   // allow unused vars with _
+        },
+      ],
+    },
   },
 ])
